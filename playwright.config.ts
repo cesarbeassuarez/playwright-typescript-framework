@@ -31,6 +31,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     locale: 'es-AR',
+    baseURL: 'https://demo.serenity.is',
   },
 
   /* Configure projects for major browsers */

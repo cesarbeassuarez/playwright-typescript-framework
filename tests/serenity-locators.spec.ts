@@ -1,16 +1,29 @@
 import { test, expect } from '@playwright/test';
+import { LoginPage } from '../pages/LoginPage';
+import { DashboardPage } from '../pages/DashboardPage';
+import { ClientesPage } from '../pages/ClientesPage';
 
-test('test', async ({ page }) => {
-  await page.goto('https://demo.serenity.is/Account/Login');
-  await page.getByRole('textbox', { name: '* Nombre de usuario' }).click();
-  await page.getByRole('textbox', { name: '* Nombre de usuario' }).fill('admin');
-  await page.getByRole('textbox', { name: '* Contraseña' }).click();
-  await page.getByRole('textbox', { name: '* Contraseña' }).fill('serenity');
-  await page.getByRole('button', { name: 'Iniciar sesión', exact: true }).click();
-  await expect(page.getByRole('heading', { name: 'Tablero' })).toBeVisible();
-  await page.getByRole('link', { name: ' Northwind ' }).click();
-  await page.getByRole('link', { name: ' Clientes' }).click();
-  await expect(page.locator('section')).toBeVisible();
-  await expect(page.locator('#GridDiv')).toContainText('ANTON');
-});
+test.describe('Locators en demo.serenity.is - con POM', () => {
+  test('login, dashboard y navegar a Clientes', async ({ page }) => {
+    // Login
+    const loginPage = new LoginPage(page);
+    await loginPage.goto();
+    await loginPage.login('admin', 'serenity');
 
+    // Verificar dashboard
+    const dashboardPage = new DashboardPage(page);
+    await dashboardPage.verificarVisible();
+    
+    // Navegar a Clientes
+    await dashboardPage.irAClientes();
+
+    // Verificar que estamos en Clientes
+    const clientesPage = new ClientesPage(page);
+    await clientesPage.verificarVisible();
+
+    // Verificar dato en grilla
+    await clientesPage.verificarClienteVisible('ANTON');
+
+  })
+
+})

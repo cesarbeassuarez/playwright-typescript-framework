@@ -10,6 +10,7 @@ export class LoginPage{
     private readonly usernameInput: Locator;
     private readonly passwordInput: Locator;
     private readonly loginButton: Locator;
+    private readonly errorBanner: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -17,6 +18,7 @@ export class LoginPage{
         this.usernameInput = page.getByRole('textbox', { name: '* Nombre de usuario' });
         this.passwordInput = page.getByRole('textbox', { name: '* Contraseña'});
         this.loginButton = page.getByRole('button', { name: 'Iniciar sesión', exact: true });
+        this.errorBanner = page.getByText(/Error de validación|Por favor, valide/);
     }
 
     // Navegar a la pagina de login
@@ -29,6 +31,16 @@ export class LoginPage{
         await this.usernameInput.fill(username);
         await this.passwordInput.fill(password);
         await this.loginButton.click();
+    }
+
+    // Click directo en el botón sin tipear nada (la app viene con credenciales precargadas)
+    async clickLogin() {
+    await this.loginButton.click();
+}
+
+    // Lee el mensaje del banner de error (sirve para credenciales inválidas y campos vacíos)
+    async obtenerMensajeError(): Promise<string> {
+        return (await this.errorBanner.textContent()) ?? '';
     }
 
 }

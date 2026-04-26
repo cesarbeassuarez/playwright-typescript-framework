@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
-import { DashboardPage } from '../pages/DashboardPage';
-import { ClientesPage } from '../pages/ClientesPage';
+import { LoginPage } from '../../pages/LoginPage';
+import { DashboardPage } from '../../pages/DashboardPage';
+import { ClientesPage } from '../../pages/ClientesPage';
 
 test.describe('Locators en demo.serenity.is - con POM', () => {
   test('login, dashboard y navegar a Clientes', async ({ page }) => {

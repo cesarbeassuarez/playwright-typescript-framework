@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { ClientesPage } from '../pages/ClientesPage';
-import { DashboardPage } from '../pages/DashboardPage';
-import { leerClientesDesdeExcel } from '../utils/excelReader';
+import { ClientesPage } from '../../pages/ClientesPage';
+import { DashboardPage } from '../../pages/DashboardPage';
+import { leerClientesDesdeExcel } from '../../utils/excelReader';
 import path from 'path';
 
 test.describe('Validación de grilla de Clientes contra Excel', () => {

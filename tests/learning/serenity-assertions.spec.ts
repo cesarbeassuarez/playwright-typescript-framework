@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
-import { DashboardPage } from '../pages/DashboardPage';
-import { ClientesPage } from '../pages/ClientesPage';
+import { LoginPage } from '../../pages/LoginPage';
+import { DashboardPage } from '../../pages/DashboardPage';
+import { ClientesPage } from '../../pages/ClientesPage';
 
 test.describe('Assertions en demo.serenity.is', () => {
     test('assertions de navegación: URL y título', async ({ page }) => {

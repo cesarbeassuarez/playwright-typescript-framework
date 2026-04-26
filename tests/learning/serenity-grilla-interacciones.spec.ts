@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { ClientesPage } from '../pages/ClientesPage';
-import { DashboardPage } from '../pages/DashboardPage';
+import { ClientesPage } from '../../pages/ClientesPage';
+import { DashboardPage } from '../../pages/DashboardPage';
 
 // Todos los tests de este archivo necesitan navegar a la grilla de Clientes.
 // En vez de repetir la navegación en cada test, usamos beforeEach.

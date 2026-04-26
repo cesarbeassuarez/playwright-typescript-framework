@@ -2,6 +2,8 @@ import { test, expect } from '../../fixtures/test-fixtures';
 import { leerClientesDesdeExcel } from '../../utils/excelReader';
 import path from 'path';
 
+// test.describe.configure({ mode: 'parallel' }); 
+
 // Todos los tests arrancan en la grilla de Clientes.
 // beforeEach centraliza la navegación usando fixtures.
 test.beforeEach(async ({ page, dashboardPage, clientesPage }) => {

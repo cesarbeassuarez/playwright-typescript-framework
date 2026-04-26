@@ -1,5 +1,7 @@
 import { test, expect } from '../../fixtures/test-fixtures';
 
+// test.describe.configure({ mode: 'parallel' });
+
 // ===== DATA-DRIVEN: credenciales inválidas =====
 const credencialesInvalidas = [
   {

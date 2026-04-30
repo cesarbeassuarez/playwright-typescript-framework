@@ -1,10 +1,6 @@
 import { test, expect } from '@playwright/test';
 import fs from 'fs';
 
-// Extraer CSRF token del storageState una sola vez
-const storageState = JSON.parse(fs.readFileSync('.auth/user.json', 'utf-8'));
-const csrfToken = storageState.cookies.find(c => c.name === 'CSRF-TOKEN')?.value || '';
-
 test.describe('API testing nativo de Playwright', () => {
 
     let apiContext;

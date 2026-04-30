@@ -9,6 +9,8 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -23,7 +25,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test --project=chromium --ignore-pattern="**/visual-regression*"
+        run: npx playwright test --project=chromium --grep-invert="visual-regression"
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}

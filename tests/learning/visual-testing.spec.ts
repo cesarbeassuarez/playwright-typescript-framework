@@ -13,6 +13,7 @@ test('screenshot de grilla de clientes', async ({ page }) => {
 });
 
 test('grilla con datos mockeados debe fallar visual test', async ({ page }) => {
+  test.skip(!!process.env.CI, 'Test diseñado para fallar — solo demostrativo');
   // Interceptar la API y devolver 2 clientes inventados
   await page.route('**/Services/Northwind/Customer/List', async (route) => {
     await route.fulfill({

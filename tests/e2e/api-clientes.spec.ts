@@ -10,6 +10,10 @@ test.describe('API testing nativo de Playwright', () => {
     let apiContext;
 
     test.beforeAll(async ({ playwright }) => {
+        // Extraer CSRF token del storageState
+        const storageState = JSON.parse(fs.readFileSync('.auth/user.json', 'utf-8'));
+        const csrfToken = storageState.cookies.find(c => c.name === 'CSRF-TOKEN')?.value || '';
+
         apiContext = await playwright.request.newContext({
             baseURL: 'https://demo.serenity.is',
             storageState: '.auth/user.json',

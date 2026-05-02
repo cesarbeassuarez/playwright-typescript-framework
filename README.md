@@ -4,6 +4,8 @@
 
 This is not a tutorial project. It's a working framework where fixtures replace `@BeforeMethod`, `page.evaluate()` extracts data from virtualized grids, and `storageState` handles auth without repeating login. Every decision, every real error, and every iteration is documented publicly. Built by a QA engineer with 4+ years of experience testing enterprise ERP systems.
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/cesarbeassuarez/playwright-typescript-framework)
+
 ## 🛠️ Tech Stack
 
 | Layer | Technology |
